@@ -1,0 +1,45 @@
+*{
+  margin:0;
+  
+}
+.gridContainer{
+margin:150px 0px 0px 400px;
+
+}
+table, td {
+  border-collapse:collapse;
+  border: solid 1px #ccc;
+  padding: 5px 20px;
+  text-align: center;
+  background-color:lightgrey;
+}
+td{
+  padding:30px;
+ 
+}
+/* .gridItem{
+text-align: center;
+border:1px solid grey;
+padding:50px;
+} */
+.fa-male{
+  font-size:40px;
+}
+.fa-key{
+  font-size:30px;
+}
+#mstrTable {
+  border: 1px solid black
+}
+#mstrTable td, th {
+  border: 1px solid black
+}
+
+#mstrTable tr.normal td {
+ color: black;
+ background-color: white;
+}
+#mstrTable tr.highlighted td {
+ color: white;
+ background-color: gray;
+}

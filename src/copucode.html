@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+        #mstrTable {
+            border: 1px solid black
+        }
+
+        #mstrTable td,
+        th {
+            border: 1px solid black
+        }
+
+        #mstrTable tr.normal td {
+            color: black;
+            background-color: white;
+        }
+
+        #mstrTable tr.highlighted td {
+            color: white;
+            background-color: gray;
+        }
+
+        * {
+            margin: 0;
+
+        }
+
+        .gridContainer {
+            margin: 150px 0px 0px 400px;
+
+        }
+
+        table,
+        td {
+            border-collapse: collapse;
+            border: solid 1px #ccc;
+            padding: 5px 20px;
+            text-align: center;
+            background-color: #FADBD8;
+        }
+
+        td {
+            padding: 30px;
+
+        }
+
+        /* .gridItem{
+text-align: center;
+border:1px solid grey;
+padding:50px;
+} */
+        .fa-male {
+            font-size: 40px;
+        }
+
+        .fa-key {
+            font-size: 30px;
+        }
+
+        #
+    </style>
+</head>
+
+<body>
+    <div className="gridContainer">
+
+        <table id="mstrTable">
+            <tbody>
+                <tr>
+                    <td><i class="fa fa-male"></i></td>
+                    <td tabindex="2"></td>
+                    <td tabindex="3"><i class="fa fa-key"></i></td>
+                    <td tabindex="4"></td>
+                </tr>
+                <tr>
+                    <td tabindex="5"></td>
+                    <td tabindex="6"><i class="fa fa-key"></i></td>
+                    <td tabindex="7"></td>
+                    <td tabindex="8"></td>
+                </tr>
+                <tr>
+                    <td tabindex="9"></td>
+                    <td tabindex="10"></td>
+                    <td tabindex="11"></td>
+                    <td tabindex="12"><i class="fa fa-key"></i></td>
+                </tr>
+                <tr>
+                    <td tabindex="13"><i class="fa fa-key"></i></td>
+                    <td tabindex="14"></td>
+                    <td tabindex="15"></td>
+                    <td tabindex="16"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </table>
+
+
+    <script type="text/javascript">
+
+        var table = document.getElementById("mstrTable");
+        /* var thead = table.getElementsByTagName("thead")[0];
+        var tbody = table.getElementsByTagName("td")[0]; */
+        var ishigh;
+
+
+        function GoTo(id, nu) {
+            var obj = document.getElementById(id),
+                trs = obj.getElementsByTagName('TR');
+            nu = nu + 1;
+            if (trs[nu]) {
+                if (ishigh && ishigh != trs[nu]) {
+                    ishigh.className = '';
+                }
+                trs[nu].className = trs[nu].className == "highlighted" ? "" : "highlighted";
+                ishigh = trs[nu];
+            }
+        }
+
+        function rowindex(row) {
+
+            var rows = table.rows, i = rows.length;
+            while (i-- > -1) {
+                if (rows[i] === row) { return i; }
+            }
+        }
+
+        document.onkeydown = function (e) {
+            
+            var code = e.keyCode, rowslim = table.rows.length - 2, newhigh;
+            if (code === 38) { //up arraow
+                newhigh = rowindex(ishigh) - 2;
+                if (!ishigh || newhigh < 0) { return GoTo('mstrTable', rowslim); }
+                return GoTo('mstrTable', newhigh);
+            } else if (code === 40) { //down arrow
+                newhigh = rowindex(ishigh);
+                if (!ishigh || newhigh > rowslim) { return GoTo('mstrTable', 0); }
+                return GoTo('mstrTable', newhigh);
+            }
+        };
+    </script>
+
+</body>
+
+
+</html>
