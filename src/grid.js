@@ -17,10 +17,33 @@ class Grid extends React.Component {
         }
     }
     handleKeyPress = (event) => {
-        if (event.key == 'ArrowDown') {
-          
-              alert(this.props.indexOf(this.state));
+        const pos = this.state.positionMaleIcon;
+        let y = parseInt(pos.split('j')[1]);
+        let x = parseInt(pos.split('j')[0].split('i')[1]);
+        switch(event.key) {
+            case "ArrowDown" :
+                if( x< 4) {
+                    x=x+1;
+                }
+                break;
+            case "ArrowUp" :
+                if(x >0 ){
+                    x=x-1;
+                }
+                break;
+            case "ArrowLeft" :
+                if(y>0){
+                    y=y-1;
+                }
+                break;
+            case "ArrowRight" :
+                if(y<4){
+                    y=y+1;
+                }
+                break;
         }
+        this.setState({ positionMaleIcon : `i${x}j${y}`});
+        console.log(this.state.positionMaleIcon);
     };
 
     render() {
@@ -32,7 +55,6 @@ class Grid extends React.Component {
             const newTr = [];
             for (let j = 0; j < 4; j++) {
                 const id = `i${i}j${j}`;
-
                 if (id == this.state.positionMaleIcon) {
                     const newCell = <td id={id} >{maleIcon}</td>
                     newTr.push(newCell);
@@ -59,7 +81,7 @@ class Grid extends React.Component {
                             tBody.map((tr) => {
                                 return <tr>
                                     {
-                                        tr.map(cell => <td tabindex="1">{cell}</td>)
+                                        tr
                                     }
                                 </tr>
                             })
