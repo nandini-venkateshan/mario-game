@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import FontAwesome from '../node_modules/font-awesome/css/font-awesome.min.css'
 import './index.css';
 
 class Grid extends React.Component {
@@ -20,30 +19,35 @@ class Grid extends React.Component {
         const pos = this.state.positionMaleIcon;
         let y = parseInt(pos.split('j')[1]);
         let x = parseInt(pos.split('j')[0].split('i')[1]);
-        switch(event.key) {
-            case "ArrowDown" :
-                if( x< 4) {
-                    x=x+1;
+        switch (event.key) {
+            case "ArrowDown":
+                if (x < 3) {
+                    x = x + 1;
                 }
                 break;
-            case "ArrowUp" :
-                if(x >0 ){
-                    x=x-1;
+            case "ArrowUp":
+                if (x > 0) {
+                    x = x - 1;
                 }
                 break;
-            case "ArrowLeft" :
-                if(y>0){
-                    y=y-1;
+            case "ArrowLeft":
+                if (y > 0) {
+                    y = y - 1;
                 }
                 break;
-            case "ArrowRight" :
-                if(y<4){
-                    y=y+1;
+            case "ArrowRight":
+                if (y < 3) {
+                    y = y + 1;
                 }
                 break;
         }
-        this.setState({ positionMaleIcon : `i${x}j${y}`});
-        console.log(this.state.positionMaleIcon);
+        let id = `i${x}j${y}`;
+        this.setState({ positionMaleIcon: id });
+        let index = this.state.positionKeys.indexOf(id);
+
+        if (index != -1) {
+            this.state.positionKeys.splice(index, 1);
+        }
     };
 
     render() {
