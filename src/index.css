@@ -11,7 +11,7 @@ table, td {
   border: solid 1px #ccc;
   padding: 5px 20px;
   text-align: center;
-  background-color:lightgrey;
+  background-color:rgb(35, 109, 151);
 }
 td{
   padding:30px;
@@ -24,9 +24,11 @@ padding:50px;
 } */
 .fa-male{
   font-size:40px;
+  color:white;
 }
 .fa-key{
   font-size:30px;
+  color:grey;
 }
 #mstrTable {
   border: 1px solid black
