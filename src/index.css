@@ -6,6 +6,11 @@
 margin:150px 0px 0px 400px;
 
 }
+@media screen and (min-width:375px) and (max-width:425px){
+  .gridContainer{
+    margin:10px 0px 0px 13px;
+  }
+}
 table, td {
   border-collapse:collapse;
   border: solid 1px #ccc;
